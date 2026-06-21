@@ -1,15 +1,20 @@
 public abstract class Conta {
+ 
+    // ---------- Atributos ----------
     private int numero;
     private Cliente titular;
     private double saldo;
-    private boolean ativa  
-
-     public Conta(int numero, Cliente titular, double saldoInicial) {
+    private boolean ativa;
+ 
+    // ---------- Construtor ----------
+    public Conta(int numero, Cliente titular, double saldoInicial) {
         this.numero = numero;
         this.titular = titular;
         this.saldo = saldoInicial;
         this.ativa = true;
     }
+ 
+    // ---------- Getters e Setters ----------
     public int getNumero() {
         return numero;
     }
@@ -41,6 +46,9 @@ public abstract class Conta {
     public void setAtiva(boolean ativa) {
         this.ativa = ativa;
     }
+ 
+    // ---------- Métodos comuns ----------
+ 
     /**
      * Realiza um depósito na conta.
      * Regra: o valor não pode ser negativo ou zero.
