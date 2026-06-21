@@ -1,3 +1,49 @@
-public record ContaCorrente() {
+public class ContaCorrente extends Conta {
+ 
+    private double limiteChequeEspecial;
+ 
+   
+    public ContaCorrente(int numero, Cliente titular, double saldoInicial, double limiteChequeEspecial) {
+        super(numero, titular, saldoInicial); // chama o construtor da classe-mãe
+        this.limiteChequeEspecial = limiteChequeEspecial;
+    }
+ 
 
+    public double getLimiteChequeEspecial() {
+        return limiteChequeEspecial;
+    }
+ 
+    public void setLimiteChequeEspecial(double limiteChequeEspecial) {
+        this.limiteChequeEspecial = limiteChequeEspecial;
+    }
+
+     * Na conta corrente, o saldo pode ficar negativo até o limite
+     * do cheque especial.
+     */
+    @Override
+    public boolean sacar(double valor) {
+        if (valor <= 0) {
+            return false;
+        }
+        if (valor > (getSaldo() + limiteChequeEspecial)) {
+            return false;
+        }
+        setSaldo(getSaldo() - valor);
+        return true;
+    }
+ 
+    @Override
+    public double calcularRendimento() {
+        return 0.0;
+    }
+ 
+    @Override
+    public String getTipo() {
+        return "Corrente";
+    }
+ 
+    @Override
+    public String toString() {
+        return super.toString() + " | Limite Especial: R$ " + String.format("%.2f", limiteChequeEspecial);
+    }
 }

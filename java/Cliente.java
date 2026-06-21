@@ -1,20 +1,14 @@
 public class Cliente {
- 
-    // ---------- Atributos ----------
     private String nome;
     private String cpf;
     private String telefone;
     private String endereco;
- 
-    // ---------- Construtor ----------
     public Cliente(String nome, String cpf, String telefone, String endereco) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
         this.endereco = endereco;
     }
- 
-    // ---------- Getters e Setters ----------
     public String getNome() {
         return nome;
     }
@@ -46,13 +40,6 @@ public class Cliente {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
- 
-    // ---------- Métodos ----------
- 
-    /**
-     * Retorna uma representação textual organizada dos dados do cliente.
-     * Sobrescreve o método toString() da classe Object.
-     */
     @Override
     public String toString() {
         return "Nome: " + nome +

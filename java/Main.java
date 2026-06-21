@@ -1,19 +1,10 @@
-Main · JAVA
-import java.util.Scanner;
- 
-/**
- * Classe Main
- * ------------
- * Ponto de entrada do sistema. Contém o menu interativo (Scanner)
- * que permite ao usuário cadastrar clientes, criar contas, realizar
- * operações bancárias e gerar relatórios.
- */
+
+import java.ultil.scaner;
 public class Main {
  
-    // Scanner único, compartilhado por todo o programa
+   
     static Scanner scanner = new Scanner(System.in);
  
-    // Banco utilizado em todo o sistema (capacidade máxima de 100 contas)
     static Banco banco = new Banco("Banco Java POO", 100);
  
     public static void main(String[] args) {
@@ -67,10 +58,7 @@ public class Main {
  
         scanner.close();
     }
- 
-    /**
-     * Exibe o menu principal do sistema.
-     */
+
     public static void exibirMenu() {
         System.out.println("========================================");
         System.out.println("   SISTEMA DE CADASTRO BANCÁRIO - POO");
@@ -89,9 +77,6 @@ public class Main {
         System.out.println("========================================");
     }
  
-    /**
-     * Cadastra um novo cliente e cria uma conta (Corrente ou Poupança) para ele.
-     */
     public static void cadastrarConta() {
         System.out.println("--- Cadastro de Cliente ---");
         System.out.print("Nome: ");
@@ -138,9 +123,6 @@ public class Main {
         }
     }
  
-    /**
-     * Busca uma conta pelo número informado e exibe seus dados.
-     */
     public static void buscarConta() {
         int numero = lerInteiro("Informe o número da conta: ");
         Conta conta = banco.buscarContaPorNumero(numero);
@@ -152,10 +134,7 @@ public class Main {
             System.out.println(conta);
         }
     }
- 
-    /**
-     * Realiza um depósito em uma conta existente.
-     */
+
     public static void realizarDeposito() {
         int numero = lerInteiro("Número da conta: ");
         Conta conta = banco.buscarContaPorNumero(numero);
@@ -174,10 +153,7 @@ public class Main {
             System.out.println("Valor inválido para depósito.");
         }
     }
- 
-    /**
-     * Realiza um saque em uma conta existente.
-     */
+
     public static void realizarSaque() {
         int numero = lerInteiro("Número da conta: ");
         Conta conta = banco.buscarContaPorNumero(numero);
@@ -196,10 +172,7 @@ public class Main {
             System.out.println("Saldo insuficiente ou valor inválido.");
         }
     }
- 
-    /**
-     * Aplica o rendimento mensal em uma conta poupança específica.
-     */
+
     public static void aplicarRendimentoPoupanca() {
         int numero = lerInteiro("Número da conta poupança: ");
         Conta conta = banco.buscarContaPorNumero(numero);
@@ -220,9 +193,6 @@ public class Main {
         }
     }
  
-    /**
-     * Encerra (inativa) uma conta do sistema.
-     */
     public static void encerrarConta() {
         int numero = lerInteiro("Número da conta a ser encerrada: ");
         boolean sucesso = banco.encerrarConta(numero);
@@ -234,12 +204,6 @@ public class Main {
         }
     }
  
-    // ---------- Métodos auxiliares de leitura segura ----------
- 
-    /**
-     * Lê um número inteiro do teclado, tratando entradas inválidas
-     * para evitar que o programa quebre (Exception).
-     */
     public static int lerInteiro(String mensagem) {
         int valor = 0;
         boolean valido = false;
@@ -257,9 +221,6 @@ public class Main {
         return valor;
     }
  
-    /**
-     * Lê um número decimal (double) do teclado, tratando entradas inválidas.
-     */
     public static double lerDouble(String mensagem) {
         double valor = 0;
         boolean valido = false;

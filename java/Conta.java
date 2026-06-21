@@ -1,20 +1,14 @@
 public abstract class Conta {
- 
-    // ---------- Atributos ----------
     private int numero;
     private Cliente titular;
     private double saldo;
     private boolean ativa;
- 
-    // ---------- Construtor ----------
     public Conta(int numero, Cliente titular, double saldoInicial) {
         this.numero = numero;
         this.titular = titular;
         this.saldo = saldoInicial;
         this.ativa = true;
     }
- 
-    // ---------- Getters e Setters ----------
     public int getNumero() {
         return numero;
     }
@@ -47,12 +41,6 @@ public abstract class Conta {
         this.ativa = ativa;
     }
  
-    // ---------- Métodos comuns ----------
- 
-    /**
-     * Realiza um depósito na conta.
-     * Regra: o valor não pode ser negativo ou zero.
-     */
     public boolean depositar(double valor) {
         if (valor <= 0) {
             return false;
@@ -61,10 +49,7 @@ public abstract class Conta {
         return true;
     }
  
-    /**
-     * Realiza um saque na conta.
-     * Regra: não permitir saldo negativo (sem cheque especial).
-     */
+
     public boolean sacar(double valor) {
         if (valor <= 0 || valor > this.saldo) {
             return false;
@@ -72,22 +57,10 @@ public abstract class Conta {
         this.saldo -= valor;
         return true;
     }
- 
-    /**
-     * Método abstrato: cada tipo de conta calcula o rendimento
-     * de uma forma diferente (polimorfismo).
-     */
     public abstract double calcularRendimento();
  
-    /**
-     * Retorna o tipo da conta. Sobrescrito nas subclasses.
-     */
     public abstract String getTipo();
  
-    /**
-     * Representação textual padrão da conta.
-     * Pode ser estendida (sobrescrita) pelas subclasses.
-     */
     @Override
     public String toString() {
         String status = ativa ? "ATIVA" : "INATIVA";
