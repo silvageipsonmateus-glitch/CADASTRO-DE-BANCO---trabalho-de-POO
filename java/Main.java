@@ -220,7 +220,6 @@ public class Main {
         }
         return valor;
     }
- 
     public static double lerDouble(String mensagem) {
         double valor = 0;
         boolean valido = false;
